@@ -59,6 +59,7 @@ e.g. $cube 3$ returns $27$
 
 Hint: see Haskell power function here (https://wiki.haskell.org/Power_function)
 -}
+cube x = x^2
 
 
 {-
@@ -70,6 +71,10 @@ Hint:
 -- use if expression
 -- always put parentheses around negative numbers
 -}
+
+myAbs x = if x > 0
+            then x
+            else x * (-1)
 
 
 {-
@@ -86,3 +91,5 @@ Hints:
 -- use nested if expressons
 -- always put parentheses around negative numbers
 -}
+
+pushOut 
