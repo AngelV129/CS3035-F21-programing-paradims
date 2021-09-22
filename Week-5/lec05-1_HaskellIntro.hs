@@ -44,7 +44,8 @@ Haskell is a purely FUNCTIONAL programming language.
 -- Functional Languages: describe WHAT stuff is, NOT how to do
     -- express stuff  in the form of FUNCTIONs
         -- e.g. the factorial of a number is the product of
-            all the numbers from 1 to that number
+            all the numbers from 1 to that number:q
+            ghc -o hello hello.hs
         -- e.g. the sum of a list of numbers is the first number
             plus the sum of all the other numbers
     -- a function does NOT have side-effects (such as change state)
