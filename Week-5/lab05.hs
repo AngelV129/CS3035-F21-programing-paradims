@@ -22,9 +22,6 @@ and TEST your implementation thoroughly. The testing procedure is as follows:
 -- It is used by the grading program to load your submission.
 module Lab05 where
 
-
-
-
 {-
 Q1 [2 POINTS]:
 Write a function named $add1$ that takes a number and increases it by 1.
