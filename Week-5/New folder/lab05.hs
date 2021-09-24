@@ -19,13 +19,13 @@ and TEST your implementation thoroughly. The testing procedure is as follows:
 
 
 
-
 {-
 Q1 [2 POINTS]:
 Write a function named $add1$ that takes a number and increases it by 1.
 
 e.g. $add1 5$ returns $6$
 -}
+add1 x = x + 1
 
 
 {-
@@ -33,12 +33,12 @@ Q2 [2 POINTS]:
 Write a function named $always0$. The return value should always just be 0.
 -}
 
-
+always0 = 0
 {-
 Q3 [2 POINTS]:
 Write a function named $mySubtract$ that takes two numbers and subtracts them.
 -}
-
+mySubtract x y = x - y
 
 {-
 Q4 [2 POINTS]:
@@ -48,7 +48,7 @@ multiply the result by $r$.
 
 e.g. $addMult 2 4 5$ returns $30$
 -}
-
+addMult p q r = ( p + q) * r
 
 {-
 Q5 [2 POINTS]:
@@ -58,6 +58,7 @@ e.g. $cube 3$ returns $27$
 
 Hint: see Haskell power function here (https://wiki.haskell.org/Power_function)
 -}
+cube x = x^2
 
 
 {-
@@ -69,6 +70,10 @@ Hint:
 -- use if expression
 -- always put parentheses around negative numbers
 -}
+
+myAbs x = if x > 0
+            then x
+            else x * (-1)
 
 
 {-
@@ -85,3 +90,5 @@ Hints:
 -- use nested if expressons
 -- always put parentheses around negative numbers
 -}
+
+pushOut 

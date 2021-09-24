@@ -17,7 +17,12 @@ and TEST your implementation thoroughly. The testing procedure is as follows:
 -- Test your implementation by calling corresponding functions with your test cases
 -}
 
-main = return()
+
+-- Please do NOT DELETE nor CHANGE the following line.
+-- It is used by the grading program to load your submission.
+module Lab05 where
+
+
 
 
 {-
@@ -33,13 +38,14 @@ add1 x = x + 1
 Q2 [2 POINTS]:
 Write a function named $always0$. The return value should always just be 0.
 -}
-
 always0 = 0
+
 {-
 Q3 [2 POINTS]:
 Write a function named $mySubtract$ that takes two numbers and subtracts them.
 -}
 mySubtract x y = x - y
+
 
 {-
 Q4 [2 POINTS]:
@@ -59,8 +65,7 @@ e.g. $cube 3$ returns $27$
 
 Hint: see Haskell power function here (https://wiki.haskell.org/Power_function)
 -}
-cube x = x^2
-
+cube x = x^3
 
 {-
 Q6 [2 POINTS]:
@@ -71,7 +76,6 @@ Hint:
 -- use if expression
 -- always put parentheses around negative numbers
 -}
-
 myAbs x = if x > 0
             then x
             else x * (-1)
@@ -92,4 +96,8 @@ Hints:
 -- always put parentheses around negative numbers
 -}
 
-pushOut 
+pushOut x = 
+            if x < 0
+                then x - 1
+            else 
+                (if x > 0 then x + 1 else x)
