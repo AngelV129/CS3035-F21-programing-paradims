@@ -175,7 +175,7 @@ Assumption:
 (1) the input list $xs$ contains at least one elements
 (2) the input integer $k$ is valid, i.e. 1 <= k <= list_length
 
-e.g. $removeAt [1,2,3,4,5] 3$ returns $[1,2,4,5]$
+e.g. $removeAt  $ returns $[1,2,4,5]$
 e.g. $removeAt "haskell" 2$ returns "hskell"
 e.g. $removeAt [1] 1$ returns $[]$
 
@@ -212,5 +212,8 @@ The $take$ and $drop$ functions are helpful.
 -}
 insertAt :: [a] -> a -> Int -> [a]
 -- YOUR CODE START HERE
-insertAt xs x k = []
+insertAt xs x k
+  | null xs = [x] -- case 1: inserting into empty list
+  | k == length xs = xs ++ [x] -- case 2: adding outside of list range
+  | otherwise = init (take k xs) ++ (x : drop (k - 1) xs) -- case 3: inserting to any index
 -- YOUR CODE END HERE
