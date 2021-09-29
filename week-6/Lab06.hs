@@ -55,7 +55,8 @@ To test a string for emptiness, use the $null$ function.
 -}
 greet :: String -> String
 -- YOUR CODE START HERE
-greet s = ""
+greet s = if null s then "Hi there"
+            else "Hi " ++ s
 -- YOUR CODE END HERE
 
 
@@ -73,7 +74,7 @@ The $reverse$ function is helpful.
 -}
 palindrome :: String -> Bool
 -- YOUR CODE START HERE
-palindrome s = True
+palindrome s = s == reverse s
 -- YOUR CODE END HERE
 
 
@@ -90,7 +91,8 @@ e.g. $range 4 4$ returns $[4]$
 -}
 range :: Int -> Int -> [Int]
 -- YOUR CODE START HERE
-range x y = []
+range x y = if x < y then [x..y]
+            else reverse ([y..x])
 -- YOUR CODE END HERE
 
 
@@ -108,7 +110,7 @@ e.g. $butLast [1,2,3,4]$ returns $3$
 -}
 butLast :: Num a => [a] -> a
 -- YOUR CODE START HERE
-butLast xs = 0
+butLast xs = init xs !! (length (init xs) -1)
 -- YOUR CODE END HERE
 
 
@@ -123,13 +125,13 @@ Note that the element position starts at 1.
 
 Assumption:
 (1) the input list $xs$ contains at least one number
-(2) the input integer $k$ is valid, i.e. 1 <= k <= list_length
+ 
 
 e.g. $elementAt [1,2,3] 2$ returns $2$
 -}
 elementAt :: Num a => [a] -> Int -> a
 -- YOUR CODE START HERE
-elementAt xs k = 0
+elementAt xs k = xs !! (k - 1)
 -- YOUR CODE END HERE
 
 
@@ -157,7 +159,7 @@ The $take$ and $drop$ functions are helpful.
 -}
 slice :: [a] -> Int -> Int -> [a]
 -- YOUR CODE START HERE
-slice xs i k = []
+slice xs i k = if length xs == 1 then xs else drop (i - 1) (take k xs)
 -- YOUR CODE END HERE
 
 
@@ -182,7 +184,7 @@ The $take$ and $drop$ functions are helpful.
 -}
 removeAt :: [a] -> Int -> [a]
 -- YOUR CODE START HERE
-removeAt xs k = []
+removeAt xs k = if length xs == 1 then xs else init (take k xs) ++ drop k (xs)
 -- YOUR CODE END HERE
 
 
