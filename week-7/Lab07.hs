@@ -99,7 +99,7 @@ Hints:
 -}
 diffSquared :: [Double] -> [Double] -> Double
 -- YOUR CODE START HERE
-diffSquared xs ys = sum[ (x - y)^2 | (x, y) <- zip xs ys ] / fromIntegral 
+diffSquared xs ys = sum[ (x - y)^2 | (x, y) <- zip xs ys ] / fromIntegral
                                     (if length xs < length ys then length xs
                                         else length ys)
 -- YOUR CODE END HERE
@@ -133,5 +133,9 @@ e.g. $twoAhead [1, 3, 2, 5, 6]$ returns $[1, 2, 4]$
 -}
 twoAhead :: [Int] -> [Int]
 -- YOUR CODE START HERE
-twoAhead xs = []
+{-
+    filters remove last two index as they do not have an partner index 2-steps ahead.
+    Tuple; the tuple contains the element and inex that has a partner two steps ahead
+-}
+twoAhead xs = [  (xs !! (i + 2)) - x  | (i, x) <- zip [0..] xs, length xs /= (i + 2), length xs /= (i + 1)]
 -- YOUR CODE END HERE
