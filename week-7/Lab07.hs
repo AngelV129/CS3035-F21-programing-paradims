@@ -65,7 +65,7 @@ e.g. $doubleOdd [2, 4, 6]$ returns $[]$
 -}
 doubleOdd :: [Int] -> [Int]
 -- YOUR CODE START HERE
-doubleOdd xs = [ x*2 | x <- xs, ((x `mod` 2) == 1) ]
+doubleOdd xs = [ x*2 | x <- xs, odd x ]
 -- YOUR CODE END HERE
 
 
