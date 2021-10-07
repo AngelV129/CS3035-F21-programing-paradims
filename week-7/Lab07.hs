@@ -50,7 +50,7 @@ e.g. $doubleIt [1.0, 2.5]$ returns $[2.0, 5.0]$
 -}
 doubleIt :: [Double] -> [Double]
 -- YOUR CODE START HERE
-doubleIt xs = []
+doubleIt xs = [x*2 | x <- xs]
 -- YOUR CODE END HERE
 
 
@@ -65,7 +65,7 @@ e.g. $doubleOdd [2, 4, 6]$ returns $[]$
 -}
 doubleOdd :: [Int] -> [Int]
 -- YOUR CODE START HERE
-doubleOdd xs = []
+doubleOdd xs = [ x*2 | x <- xs, ((x `mod` 2) == 1) ]
 -- YOUR CODE END HERE
 
 
@@ -99,9 +99,10 @@ Hints:
 -}
 diffSquared :: [Double] -> [Double] -> Double
 -- YOUR CODE START HERE
-diffSquared xs ys = 0.0
+diffSquared xs ys = sum[ (x - y)^2 | (x, y) <- zip xs ys ] / fromIntegral 
+                                    (if length xs < length ys then length xs
+                                        else length ys)
 -- YOUR CODE END HERE
-
 
 {-
 Q4 [2 POINTS]:
@@ -116,7 +117,7 @@ e.g. $largers [1, 5, 3] [2, 3, 2, 20]$ returns $[2, 5, 3]$
 -}
 largers :: [Int] -> [Int] -> [Int]
 -- YOUR CODE START HERE
-largers xs ys = []
+largers xs ys = [ if x > y then x else y | (x,y) <- zip xs ys ]
 -- YOUR CODE END HERE
 
 
