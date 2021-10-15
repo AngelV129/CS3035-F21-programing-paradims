@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -Wno-overlapping-patterns #-}
 {- Lab 08: Types and Functions (Pattern Matching) [10 POINTS] -}
 
 {-
@@ -49,7 +50,7 @@ e.g. $percent 3 4$ returns $75.0$
 -}
 percent :: Int -> Int -> Float
 -- YOUR CODE START HERE
-percent m n = 0.0
+percent m n = fromIntegral m / fromIntegral n * 100
 -- YOUR CODE END HERE
 
 
@@ -74,7 +75,8 @@ Hints:
 -}
 positions :: Eq a => a -> [a] -> [Int]
 -- YOUR CODE START HERE
-positions x xs = []
+positions _ [] = []
+positions x xs = [index | (index,value) <- zip [1..] xs, value == x]
 -- YOUR CODE END HERE
 
 
@@ -96,7 +98,9 @@ Hints:
 -}
 search :: Int -> [Int] -> Bool
 -- YOUR CODE START HERE
-search x xs = False
+search _ [] = False
+search x (h:xs) = (h == x) || search x xs
+
 -- YOUR CODE END HERE
 
 
@@ -118,7 +122,12 @@ Hints:
 -}
 removeDups :: [Int] -> [Int]
 -- YOUR CODE START HERE
-removeDups xs = []
+removeDups [] = []
+removeDups [x] = [x]
+-- if first two are the same then ignore the first and compare 2nd with the following.
+-- else add the two to the new list.
+removeDups (x:y:xs) = if x == y then removeDups (y:xs)
+                        else x : y : removeDups xs
 -- YOUR CODE END HERE
 
 
@@ -142,5 +151,7 @@ Hints:
 -}
 unpack :: [[Int]] -> [Int]
 -- YOUR CODE START HERE
-unpack xs = []
+unpack [] = []
+unpack [[]] = []
+unpack xs = head xs ++ unpack (drop 1 xs)  
 -- YOUR CODE END HERE
