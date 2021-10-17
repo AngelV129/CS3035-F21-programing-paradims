@@ -152,6 +152,5 @@ Hints:
 unpack :: [[Int]] -> [Int]
 -- YOUR CODE START HERE
 unpack [] = []
-unpack [[]] = []
-unpack xs = head xs ++ unpack (drop 1 xs)  
+unpack (x:xs) = x ++ unpack xs
 -- YOUR CODE END HERE
