@@ -181,16 +181,23 @@ Hints:
 -- Think the selection sort FUNCTIONALLY and RECURSIVELY
 -- You can create/use any helper functions you need.
 -}
-selectionSort :: [Int] -> [Int]
+-- selectionSort :: [Int] -> [Int]
 -- YOUR CODE START HERE
-selectionSort [] = []
-selectionSort [x] = [x]
-selectionSort (x:xs) = removeElement (minimum (x:xs))
-                
-
 removeElement :: Eq a => a -> [a] -> [a]
 removeElement _ [] = []
 removeElement target (x:xs)
-        | target == x = [x]
-        |otherwise  = x: removeElement target xs
+            | target == x = xs
+            | otherwise  = x: removeElement target xs
+
+selectionSort [] = []
+selectionSort [x] = [x]
+selectionSort xs =
+            let minVal = minimum xs
+                minPos = [pos | (pos, y) <- zip [1..] xs, y == minVal]
+            in  if null minPos then []
+                else
+                    minVal : selectionSort (removeElement minVal xs)
+
+
+
 -- YOUR CODE END HERE
