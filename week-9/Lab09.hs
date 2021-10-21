@@ -37,8 +37,7 @@ and TEST your implementation thoroughly. The testing procedure is as follows:
 -- Please do NOT DELETE nor CHANGE the following line.
 -- It is used by the grading program to load your submission.
 module Lab09 where
-import Graphics.Win32.Dialogue (getNextDlgGroupItem)
-import Data.List (insert)
+
 
 
 
