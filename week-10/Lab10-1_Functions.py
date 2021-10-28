@@ -37,7 +37,15 @@ Notes:
 -- Hence, your running results may NOT be exactly same with the above results,
     but with a small error.
 """
+
+
 # YOUR CODE START HERE
+def compute1(i):
+    if i == 1:
+        return 1
+    else:
+        return 1 / i + compute1(i - 1)
+
 
 # YOUR CODE END HERE
 
@@ -62,7 +70,15 @@ Notes:
 -- Hence, your running results may NOT be exactly same with the above results,
     but with a small error.
 """
+
+
 # YOUR CODE START HERE
+def compute2(i):
+    if i == 1:
+        return 1 / 2
+    else:
+        return i / (i + 1) + compute2(i - 1)
+
 
 # YOUR CODE END HERE
 
@@ -76,7 +92,7 @@ Notes:
 
 """
 Q3 [3 POINTS]:
-Write a RECURSIVE function named $max_sort$ that takes a list of integers and
+Write a RECURSIVE function named  that takes a list of integers and
 sorts the list in the INCREASING order with the sorting algorithm as follows.
 -- find the max and put it at the end of the list
 -- then recursively sort the remainder of the list
@@ -89,7 +105,19 @@ Hints:
 -- You can create/use any helper functions you need, provide that you wrote it
     yourself, or it's built into Python.
 """
+
+
 # YOUR CODE START HERE
+def max_sort(numList):
+    if len(numList) == 0:
+        return []
+    elif len(numList) == 1:
+        return numList
+    else:
+        tmp = [max(numList)]
+        numList.remove(max(numList))
+        return max_sort(numList) + tmp
+
 
 # YOUR CODE END HERE
 
