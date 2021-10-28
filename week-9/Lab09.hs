@@ -180,7 +180,7 @@ Hints:
 -- Think the selection sort FUNCTIONALLY and RECURSIVELY
 -- You can create/use any helper functions you need.
 -}
--- selectionSort :: [Int] -> [Int]
+selectionSort :: [Int] -> [Int]
 -- YOUR CODE START HERE
 removeElement :: Eq a => a -> [a] -> [a]
 removeElement _ [] = []
