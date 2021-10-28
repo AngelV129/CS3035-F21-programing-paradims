@@ -63,11 +63,11 @@ e.g. $generations 32$ returns "Millennial"
 generations :: (Integral a) => a -> String
 -- YOUR CODE START HERE
 generations age
-    | birthYear > 1995 = "Generation Z"
-    | birthYear > 1980 = "Millennial"
-    | birthYear > 1965 = "Generation X"
-    | birthYear > 1945 = "Baby Boomer"
-    | birthYear > 1933 = "The Silent Generation"
+    | birthYear >= 1995 = "Generation Z"
+    | birthYear >= 1980 = "Millennial"
+    | birthYear >= 1965 = "Generation X"
+    | birthYear >= 1945 = "Baby Boomer"
+    | birthYear >= 1933 = "The Silent Generation"
     | otherwise = "The Silent Generation"
     where birthYear = 2021 - age
 -- YOUR CODE END HERE
