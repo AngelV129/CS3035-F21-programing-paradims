@@ -22,13 +22,11 @@ This video (https://calstatela.zoom.us/rec/share/uIcKncpEt8rvakCv35XKGEnMD8BLA21
 illustrates a play round of my implementation. You may take it as a reference.
 """
 
-
 # Please do NOT DELETE nor CHANGE the following line.
 # It is used to import the random module which pre-defines functions to generate
 #   pseudo-random numbers (https://docs.python.org/3/library/random.html).
 # You need it in Step 1.
 import random
-
 
 """
 Step 1 [2.5 POINTS]:
@@ -39,7 +37,15 @@ Hint: Use random.shuffle(your_deck) to shuffle in place
 
 Note: Do NOT define ANY functions in your implementation.
 """
+playerOneScore = 0
+playerTwoScore = 0
 
+p1Deck = list(range(1, 11))
+random.shuffle(p1Deck)
+p2Deck = list(range(1, 11))
+random.shuffle(p2Deck)
+print("Shuffling Player 1\'s Deck.")
+print("Shuffling Player 2\'s Deck.")
 
 """
 Step 2 [5 POINTS]:
@@ -50,6 +56,45 @@ the player scores alone and repeat the asking process.
 
 Note: Do NOT define ANY functions in your implementation.
 """
+p1Hand = 0
+p2Hand = 0
+
+while len(p1Deck) > 0:
+    choice = input("\ntype/enter 1 to \"hit\"!")
+    # pull cards form both players
+    p1Hand = p1Deck.pop(0)
+    p2Hand = p2Deck.pop(0)
+    # compare the numbers
+
+    # If scores are a tie then dont update
+    if p1Hand > p2Hand:
+        print('Player 1 has', p1Hand)
+        print('Player 2 has', p2Hand)
+        print()
+        # p1 wins
+        print('Player 1 wins the hand.')
+        print()
+        playerOneScore += p1Hand + p2Hand
+
+    elif p2Hand > p1Hand:
+        print('Player 1 has', p1Hand)
+        print('Player 2 has', p2Hand)
+        print()
+        print('Player 2 wins the hand.')
+        print()
+        playerTwoScore += p1Hand + p2Hand
+
+    else:
+        print('Player 1 has', p1Hand)
+        print('Player 2 has', p2Hand)
+        print()
+        print('Draw!')
+
+        continue
+    print("Player 1 has", playerOneScore, "points.")
+    print("Player 2 has", playerTwoScore, "points.")
+
+    # Add numbers to total scores to each player
 
 """
 Step 3 [2.5 POINTS]:
@@ -58,3 +103,12 @@ and end/terminate the game.
 
 Note: Do NOT define ANY functions in your implementation.
 """
+print("-------------------------------------------------")
+print("\nPlayer 1 total score is", playerOneScore)
+print("Player 2 total score is", playerTwoScore)
+if playerOneScore > playerTwoScore:
+    print("Winner player one")
+elif playerTwoScore > playerOneScore:
+    print("Winner player two")
+else:
+    print("Game is a Draw")
