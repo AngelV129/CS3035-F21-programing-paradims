@@ -26,6 +26,7 @@ class Deck:
     # resets the deck (creates a new list of cards and shuffles them)
     def reset(self):
         self.__init__()
+        Card.unique_id = 0
         self.shuffle_deck()
 
 
