@@ -1,16 +1,15 @@
 import random
 
-values = {'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7, 'Eight': 8, 'Nine': 9, 'Ten': 10,
+values = {2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10,
           'Jack': 11, 'Queen': 12, 'King': 13, 'Ace': 14}
 suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
-ranks = ['Two', 'Three', "Four", "Five", "Six", 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace']
+ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace']
 
 
 class Deck:
     def __init__(self):
         # Create list of card card object
         self.cards = [Card((rank, suit)) for suit in suits for rank in ranks]
-        print(self.cards)
 
     # shuffle cards member
     def shuffle_deck(self):
@@ -26,34 +25,40 @@ class Deck:
 
     # resets the deck (creates a new list of cards and shuffles them)
     def reset(self):
-        self.cards = [Card((rank, suit)) for suit in suits for rank in ranks]
+        self.__init__()
+        self.shuffle_deck()
 
 
 class Card:
+    unique_id = 0
+
     def __init__(self, rank_suit_tuple):
         self.rank, self.suit = rank_suit_tuple
-        self.key = values.get(self.rank)
+        self.value = values.get(self.rank)
+        Card.unique_id += 1
+        self.key = Card.unique_id
 
     def __lt__(self, other):
-        return self.key < other.key
+        return self.value < other.value
 
     def __gt__(self, other):
-        return self.key > other.key
+        return self.value > other.value
 
     def __eq__(self, other):
-        return self.key == other.key
+        return self.value == other.value
 
     def __repr__(self):
-        return f'Rank: {self.rank}, Suit: {self.suit}, Key: {self.key}'
+        return f'Rank: {self.rank}, Suit: {self.suit}, Key: {self.key}, Value: {self.value}'
 
     def __str__(self):
-        if self.key < 11:
-            return f'{self.key} of {self.suit}'
-        else:
-            return f'{self.rank} of {self.suit}'
+        # if self.key < 11:
+        #     return f'{self.rank} of {self.suit}'
+        # else:
+        return f'{self.rank} of {self.suit}'
 
 
 deck = Deck()
+print("\n\nLet's Play War!\n")
 
 p1Score = 0
 p2Score = 0
@@ -75,10 +80,10 @@ while game_round <= 5:
 
     if p1Card > p2Card:
         print("Player 1 wins the hand.\n")
-        p1Score += p1Card.key + p2Card.key
+        p1Score += p1Card.value + p2Card.value
     elif p1Card < p2Card:
         print("Player 2 wins the hand.\n")
-        p2Score += p1Card.key + p2Card.key
+        p2Score += p1Card.value + p2Card.value
     else:
         print("Tie hand.\n")
 
