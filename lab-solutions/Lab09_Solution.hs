@@ -1,6 +1,7 @@
 {- Lab 09: Functions and Recursions [15 POINTS] -}
 
 {-
+
 Please solve the problems with the following steps:
 -- (1) REPLACE each function's pre-implementation (i.e. the existing code between
     the line "-- YOUR CODE START HERE" and the line "-- YOUR CODE END HERE")
@@ -36,8 +37,6 @@ and TEST your implementation thoroughly. The testing procedure is as follows:
 -- Please do NOT DELETE nor CHANGE the following line.
 -- It is used by the grading program to load your submission.
 module Lab09_Solution where
-
-
 
 
 {-
