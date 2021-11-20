@@ -144,7 +144,7 @@ Examples:
 
 flatten :: [[a]] -> [a]
 -- YOUR CODE START HERE
-flatten xs = foldl ( ++ ) [] xs 
+flatten xs = foldl ( ++ ) [] xs
 -- YOUR CODE END HERE
 
 {-
@@ -177,7 +177,10 @@ Examples:
 
 sumRows :: Num a => [[a]] -> [a]
 -- YOUR CODE START HERE
-sumRows xs = foldr (\x acc -> sum x : acc ) [] xs 
+sumRows = map sum
+-- sumRows xs = map sum xs
+-- sumRows xs = map (\ x -> sum x) xs
+-- sumRows xs = foldr (\x acc -> sum x : acc ) [] xs
 -- YOUR CODE END HERE
 
 {-
