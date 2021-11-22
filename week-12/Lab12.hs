@@ -116,7 +116,14 @@ Examples:
 
 min2 :: Ord a => [a] -> a
 -- YOUR CODE START HERE
+min2 (x : xs) =
+   foldr min y xs 
+  where
+    smallest = foldr min x xs 
+    (y : ys) = removeFirstOccur smallest (x : xs) 
 
+    removeFirstOccur _ [] = []
+    removeFirstOccur y (x : xs) = if x == y then xs else x : removeFirstOccur y xs
 -- YOUR CODE END HERE
 
 {-
@@ -177,7 +184,7 @@ Examples:
 
 sumRows :: Num a => [[a]] -> [a]
 -- YOUR CODE START HERE
-sumRows = map sum
+sumRows xs = map sum xs
 -- sumRows xs = map sum xs
 -- sumRows xs = map (\ x -> sum x) xs
 -- sumRows xs = foldr (\x acc -> sum x : acc ) [] xs
