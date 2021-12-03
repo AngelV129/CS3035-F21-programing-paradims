@@ -18,12 +18,12 @@ testCases = [
                 (compareFloat (O.area $ O.Cuboid 1 2 3) 22, "(O.area $ O.Cuboid 1 2 3) == 22")           
             ]
 
--- extraCreditTestCases = [
---                 (compareFloat (S.area $ S.RightTriangle (S.Point 3 0) (S.Point 0 0) (S.Point 0 4)) 6, "(S.area $ S.RightTriangle (S.Point 3 0) (S.Point 0 0) (S.Point 0 4)) == 6"),
---                 (compareFloat (S.perimeter $ S.RightTriangle (S.Point 3 0) (S.Point 0 0) (S.Point 0 4)) 12, "(S.perimeter $ S.RightTriangle (S.Point 3 0) (S.Point 0 0) (S.Point 0 4)) == 12"),
---                 (compareFloat (S.area $ S.RightTriangle (S.Point 3 0) (S.Point 0 4) (S.Point 0 0)) 6, "(S.area $ S.RightTriangle (S.Point 3 0) (S.Point 0 4) (S.Point 0 0)) == 6"),
---                 (compareFloat (S.perimeter $ S.RightTriangle (S.Point 3 0) (S.Point 0 4) (S.Point 0 0)) 12, "(S.perimeter $ S.RightTriangle (S.Point 3 0) (S.Point 0 4) (S.Point 0 0)) == 12")               
---             ]
+extraCreditTestCases = [
+                (compareFloat (S.area $ S.RightTriangle (S.Point 3 0) (S.Point 0 0) (S.Point 0 4)) 6, "(S.area $ S.RightTriangle (S.Point 3 0) (S.Point 0 0) (S.Point 0 4)) == 6"),
+                (compareFloat (S.perimeter $ S.RightTriangle (S.Point 3 0) (S.Point 0 0) (S.Point 0 4)) 12, "(S.perimeter $ S.RightTriangle (S.Point 3 0) (S.Point 0 0) (S.Point 0 4)) == 12"),
+                (compareFloat (S.area $ S.RightTriangle (S.Point 3 0) (S.Point 0 4) (S.Point 0 0)) 6, "(S.area $ S.RightTriangle (S.Point 3 0) (S.Point 0 4) (S.Point 0 0)) == 6"),
+                (compareFloat (S.perimeter $ S.RightTriangle (S.Point 3 0) (S.Point 0 4) (S.Point 0 0)) 12, "(S.perimeter $ S.RightTriangle (S.Point 3 0) (S.Point 0 4) (S.Point 0 0)) == 12")               
+            ]
 
 compareFloat :: Float -> Float -> Bool
 compareFloat a b = (abs $ a - b) <= 0.00001
@@ -42,16 +42,17 @@ printTestResult xs
                     mapM_ (\x -> putStrLn (snd x)) xs
                     putStrLn "\n****************************************\n"
 
--- printExtraCreditResult xs
---     | null xs   = do
---                     putStrLn "\n*****************************"
---                     putStrLn "You DO get the extra credit."
---                     putStrLn "*****************************\n"
---     | otherwise = do
---                     putStrLn "\n*********************************"
---                     putStrLn "You do NOT get the extra credit."
---                     putStrLn "*********************************\n"
+printExtraCreditResult xs
+    | null xs   = do
+                    putStrLn "\n*****************************"
+                    putStrLn "You DO get the extra credit."
+                    putStrLn "*****************************\n"
+    | otherwise = do
+                    putStrLn "\n*********************************"
+                    putStrLn "You do NOT get the extra credit."
+                    mapM_ (\x -> putStrLn (snd x)) xs
+                    putStrLn "*********************************\n"
 
 main = do
         printTestResult (filterFalseTestCases testCases)
---         printExtraCreditResult (filterFalseTestCases extraCreditTestCases)
+        printExtraCreditResult (filterFalseTestCases extraCreditTestCases)
