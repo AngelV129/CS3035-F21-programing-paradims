@@ -8,6 +8,7 @@ module Objects
 data Object = Sphere Float -- radius
             | Cube Float  
             | Cuboid Float Float Float 
+            deriving (Show)
 
 
 volume :: Object -> Float  
